@@ -1,0 +1,22 @@
+# ml-flow-k8s-deployment.yaml
+name: ml-flow-k8s
+flow_name: local_async_ml_flow
+version: "1.0"
+description: Deployment of local_async_ml_flow on Kubernetes
+
+infrastructure:
+  type: kubernetes-job
+  kubernetes-job:
+    image: 9177746770/ml-prefect-flow:latest
+    namespace: prefect
+    cpu_request: "500m"
+    memory_request: "1Gi"
+    cpu_limit: "1"
+    memory_limit: "2Gi"
+    service_account_name: default
+    labels: {}
+    env: []
+
+parameters: {}
+work_queue_name: default
+tags: []
