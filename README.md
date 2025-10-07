@@ -14,31 +14,28 @@ ML-SYNCHRONOUS → Dockerfile → Builds a Python 3.13 Prefect 3.x image for run
 ML-SYNCHRONOUS
 │
 ├── Flow.py
-│ └── Defines Prefect flow (local_async_ml_flow) → orchestrates multiple async ML trials (t1, t2, t3)
+│     └── Defines Prefect flow (local_async_ml_flow) → orchestrates multiple async ML trials (t1, t2, t3)
 │
 ├── Train.py
-│ └── Called by Flow.py → trains RandomForest models and saves model + metrics JSONs to /artifacts
+│     └── Called by Flow.py → trains RandomForest models and saves model + metrics JSONs to /artifacts
 │
 ├── ml-flow-k8s-deployment.yml
-│ └── YAML config for Prefect flow as Kubernetes Job → defines image, namespace, CPU/memory limits
+│     └── YAML config for Prefect flow as Kubernetes Job → defines image, namespace, CPU/memory limits
 │
 ├── deploy_k8s.py
-│ └── Deploys Prefect flow to Kubernetes → uses Docker image + work pool, creates deployment definition
+│     └── Deploys Prefect flow to Kubernetes → uses Docker image + work pool, creates deployment definition
 │
 ├── deploy_flow.py
-│ └── Registers Prefect flow to Kubernetes work queue → schedules async runs via Prefect agent
+│     └── Registers Prefect flow to Kubernetes work queue → schedules async runs via Prefect agent
 │
 ├── create_deployment.py
-│ └── Builds and applies KubernetesJob deployment → sets resource requests and container image
+│     └── Builds and applies KubernetesJob deployment → sets resource requests and container image
 │
 ├── Steps.docx
-│ └── Documentation → explains setup, installation, flow execution, and architecture
+│     └── Documentation → explains setup, installation, flow execution, and architecture
 │
 └── Dockerfile
-└── Builds Python 3.13 image with Prefect 3.x + project dependencies → used by Kubernetes pods
-
-
----
+      └── Builds Python 3.13 image with Prefect 3.x + project dependencies → used by Kubernetes pods
 
 ### ⚙️ Execution Flow Summary
 Flow.py → Train.py → artifacts  
