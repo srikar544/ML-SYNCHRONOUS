@@ -1,6 +1,6 @@
 Below is the structure of the Project:
 
-ML-SYNCHRONOUS -> Flow.py
+ML-SYNCHRONOUS -> Flow.py -> Runs multiple ML training experiments asynchronously with Prefect, executing train.py for different hyperparameters and saving outputs to /app/artifacts.
 ML-SYNCHRONOUS -> Train.py
 ML-SYNCHRONOUS -> ml-flow-k8s-deployment.yml
 ML-SYNCHRONOUS -> deploy_k8s.py
